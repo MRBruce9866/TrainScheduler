@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
+    <!-- JQuery -->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+
+    <!-- My stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-12">
+                <div class="jumbotron jumbotron-fluid text-center rounded border-light">
+                    <h1 class="display-4">Train Time</h1>
+                    <p class="lead"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12">
+                <div class="card border-primary">
+                    <div class="card-header bg-primary text-light">
+                        Current Train Schedule
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead class="thead-primary">
+                                <tr>
+                                    <th scope="col">Train Name</th>
+                                    <th scope="col">Destination</th>
+                                    <th scope="col">Frequency (min)</th>
+                                    <th scope="col">Next Arrival</th>
+                                    <th scope="col">Minutes Away</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Train Name</td>
+                                    <td>Destination</td>
+                                    <td>Frequency (min)</td>
+                                    <td>Next Arrival</td>
+                                    <td>Minutes Away</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12">
+                <div class="card border-primary">
+                    <div class="card-header bg-primary text-light">
+                        Add Train
+                    </div>
+                    <div class="card-body">
+
+                        <form>
+                            <div class="form-group">
+                                <label for="tNameInput">Train Name</label>
+                                <input type="text" class="form-control" id="tNameInput">
+                            </div>
+                            <div class="form-group">
+                                <label for="tDestinationInput">Destination</label>
+                                <input type="text" class="form-control" id="tDestinationInput">
+                            </div>
+                            <div class="form-group">
+                                <label for="tTimeInput">First Train Time (HH:mm / Military Time)</label>
+                                <input type="text" class="form-control" id="tTimeInput">
+                            </div>
+                            <div class="form-group">
+                                <label for="tFrequencyInput">Frequency (min)</label>
+                                <input type="text" class="form-control" id="tFrequencyInput">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <script src="assets/javascript/javascript.js"></script>
+</body>
+
+</html>
