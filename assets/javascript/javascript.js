@@ -37,7 +37,7 @@ database.ref().on("child_added", function(snapshot){
     var trainName = sv.trainName;
     var destination = sv.destination;
     var startTime = moment(sv.startTime, "HH:mm");
-    var frequency = parseInt(sv.frequency);
+    var frequency = Math.abs(parseInt(sv.frequency));
     
     var nextArrival = getNextArrival(startTime, frequency);
     var minutesAway = getMinutesAway(nextArrival);
@@ -63,16 +63,27 @@ function areInputsValid(trainName, destination, startTime, frequency){
 
 
     if(trainName === ""){
-        $("#tNameHelp").text("<----- Enter a valid Train Name");
+        $("#tNameHelp").text(" ***Enter a valid Train Name***");
+        console.log(trainName)
         valid = false;
     }
     if(destination === ""){
-        $("#tDestinationHelp").text("<----- Enter a valid Destination");
+        $("#tDestinationHelp").text(" ***Enter a valid Destination***");
+        console.log(destination)
+        valid = false;
+    }
+    console.log(startTime)
+    console.log(moment(startTime, "HH:mm").format("HH:mm"))
+
+    if(moment(startTime, "HH:mm").format("HH:mm") === "Invalid date"){
+        $("#tTimeHelp").text(" ***Enter a valid Time***");
+        console.log(startTime)
         valid = false;
     }
 
-    if(moment(startTime, "HH:mm").format("HH:mm") === "Invalid date"){
-        $("#tTimeHelp").text("<----- Time is not recongnized. Use the HH:mm (military time) format");
+    if(Math.abs(parseInt(frequency)) === 0 || frequency === ""){
+        $("#tFrequencyHelp").text(" ***Enter a value greater than 0***");
+        console.log(frequency)
         valid = false;
     }
 
