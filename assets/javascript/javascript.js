@@ -7,6 +7,7 @@ $(document).ready(function(){
         
         addTrainToDatabase();
         
+        
 
     })
 
@@ -54,18 +55,46 @@ database.ref().on("child_added", function(snapshot){
 })
 
 // check if inputs meet the required format
-function areInputsValid(){
-    return true;
+function areInputsValid(trainName, destination, startTime, frequency){
+
+    var valid = true;
+    $(".warningText").text("");
+
+
+
+    if(trainName === ""){
+        $("#tNameHelp").text("<----- Enter a valid Train Name");
+        valid = false;
+    }
+    if(destination === ""){
+        $("#tDestinationHelp").text("<----- Enter a valid Destination");
+        valid = false;
+    }
+
+    if(moment(startTime, "HH:mm").format("HH:mm") === "Invalid date"){
+        $("#tTimeHelp").text("<----- Time is not recongnized. Use the HH:mm (military time) format");
+        valid = false;
+    }
+
+
+    if(valid){
+        $(".warningText").text("");
+    }
+
+    return valid;
 }
 
 function addTrainToDatabase(){
 
-    if(!areInputsValid()) return;
+    
 
     var trainName = $("#tNameInput").val().trim();
     var destination = $("#tDestinationInput").val().trim();
     var startTime = $("#tTimeInput").val().trim();
     var frequency = $("#tFrequencyInput").val().trim();
+
+    if(!areInputsValid(trainName, destination, startTime, frequency)) return;
+    $(".form-control").val((""));
 
 
     database.ref().push({
