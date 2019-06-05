@@ -3,11 +3,8 @@ $(document).ready(function(){
     //onClick event listener for the submit button (Add Train Form)
     $("#submitTrainBtn").on("click", function(event){
         event.preventDefault();
-
         
         addTrainToDatabase();
-        
-        
 
     })
 

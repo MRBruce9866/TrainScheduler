@@ -1,4 +1,24 @@
+body{
+    color: white;
+   
+    background: url(../images/rrBG.jpg) center center no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+
+
 .warningText{
     font-size: 20px;
     color: red;
+    
+}
+
+.card-header, .btn{
+    background-color: #509deb77;
+}
+
+.card, 
+.jumbotron{
+background-color: #000000dd;
 }
